@@ -1,6 +1,3 @@
-from ast import Delete
-from itertools import product
-from unicodedata import category
 from .models import Category, Product
 from .serializers import CategorySerializer,ProductSerializer
 from rest_framework.views import APIView
@@ -43,7 +40,7 @@ class CategoryDetails(APIView):
     def put(self, request,pk,format=None):
         data =request.data
         category = self.get_object(pk=pk)
-        serializer = CategorySerializer(category, data =data)
+        serializer = CategorySerializer(category, data=data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -77,7 +74,7 @@ class  ProductDetails(APIView):
             return Product.objects.get(pk=pk)
         except Product.DoesNotExist:
             raise Http404
-    def get(self, request,pk=None):
+    def get(self,request,pk=None):
         product = self.get_object(pk=pk)
         serializer = ProductSerializer(product)
         return Response(serializer.data)

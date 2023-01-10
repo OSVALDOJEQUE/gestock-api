@@ -28,7 +28,7 @@ schema_view =get_schema_view(
         license=openapi.License(name="BSD License"),
     ),
     public=True,
-    permission_classes=[permissions.AllowAny]
+    permission_classes=[permissions.IsAdminUser]
 )
 
 
@@ -37,5 +37,7 @@ urlpatterns = [
     path('swagger/',schema_view.with_ui('swagger',cache_timeout=0),name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
     path('account/',include('user.urls')),
-    path('product/',include('product.urls'))
+    path('product/',include('product.urls')),
+    path('stock/',include('stock.urls')),
+    path('sale/',include('sale.urls'))
 ]

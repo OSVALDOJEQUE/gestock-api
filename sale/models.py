@@ -5,11 +5,11 @@ from user.models import User
 from django.db.models.deletion import PROTECT
 
 class Sale(models.Model):
-    user = models.ForeignKey(User, on_delete=PROTECT)
+    user = models.ForeignKey(User, on_delete=PROTECT, db_column ='user')
+    product = models.ForeignKey(Product, on_delete=PROTECT, db_column='product')
     quantity = models.PositiveBigIntegerField()
-    product = models.ForeignKey(Product,on_delete=PROTECT)
     descount = models.PositiveBigIntegerField(max_length=2,blank=True, null=True)
-    total = models.DecimalField(max_digits=12, decimal_places=2)
+    total = models.DecimalField(max_digits=12, decimal_places=2,blank=True, null=True)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     modified = models.DateTimeField(auto_now=False,auto_now_add=True)
 
