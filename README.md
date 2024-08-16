@@ -19,12 +19,13 @@ Gestão
 1. **Instale as dependências do projeto:**
    ```bash
    pip install -r requirements.txt
-2.**Execute as migrações do banco de dados:**
-  ```bash
-  python manage.py migrate
+
+2. **Execute as migrações do banco de dados:**
+   ```bash
+   python manage.py migrate
 3. **Inicie o servidor de desenvolvimento:**
-  ```bash
-  python manage.py runserver
+   ```bash
+   python manage.py runserver
 O servidor estará acessível em http://localhost:8000.
 
 
